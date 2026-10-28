@@ -12,4 +12,12 @@ public class ProcesadorPedido {
     public int getPedidoCompletos() {
         return pedidoCompletos;
     }
+
+    public void completarPedido() {
+        pedidoCompletos++;
+    }
+
+    public void reiniciar() {
+        pedidoCompletos = 0;
+    }
 }
