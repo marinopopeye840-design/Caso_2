@@ -1,6 +1,8 @@
+
 package ni.edu.uam.caso_2;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -18,8 +20,24 @@ public class MainApplication extends Application {
 
         Scene scene = new Scene(fxmlLoader.load());
 
+        PedidoController controller = fxmlLoader.getController();
+
         stage.setTitle("Procesamiento de Pedidos");
         stage.setScene(scene);
+
+        stage.setOnCloseRequest(event -> {
+
+            event.consume();
+
+            controller.cerrar(() -> {
+
+                stage.setOnCloseRequest(null);
+                stage.close();
+                Platform.exit();
+
+            });
+        });
+
         stage.show();
     }
 

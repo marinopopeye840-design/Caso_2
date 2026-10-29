@@ -156,13 +156,35 @@ public class PedidoController {
         }
     }
 
-    public void cerrar() {
+    public void cerrar(Runnable alTerminar) {
 
         cerrando = true;
 
-        if (hiloPedidos != null && hiloPedidos.isAlive()) {
-            cancelacionSolicitada = true;
-            hiloPedidos.interrupt();
+        Thread hiloActual = hiloPedidos;
+
+        if (hiloActual == null || !hiloActual.isAlive()) {
+            alTerminar.run();
+            return;
         }
+
+        cancelacionSolicitada = true;
+        hiloActual.interrupt();
+
+        Thread espera = new Thread(() -> {
+
+            try {
+
+                hiloActual.join();
+
+                Platform.runLater(alTerminar);
+
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+
+        });
+
+        espera.setDaemon(true);
+        espera.start();
     }
 }

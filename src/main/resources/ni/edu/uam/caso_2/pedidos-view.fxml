@@ -11,7 +11,7 @@
             <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <GridPane layoutX="28.0" layoutY="72.0" prefHeight="167.0" prefWidth="429.0">
+      <GridPane layoutX="28.0" layoutY="72.0" prefHeight="167.0" prefWidth="500.0">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="209.0" minWidth="10.0" prefWidth="97.2" />
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="340.2" minWidth="10.0" prefWidth="333.2" />
@@ -37,7 +37,7 @@
                   <Font name="System Bold Italic" size="19.0" />
                </font>
             </Label>
-            <Label fx:id="lblContador" prefHeight="27.0" prefWidth="246.0" text="Pedidos Completados: 0 / 30" GridPane.columnIndex="1">
+            <Label fx:id="lblContador" prefHeight="27.0" prefWidth="320.0" text="Pedidos Completados: 0 / 30" GridPane.columnIndex="1">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font>
@@ -51,12 +51,12 @@
          </children>
       </GridPane>
       <Separator layoutX="14.0" layoutY="59.0" prefHeight="0.0" prefWidth="580.0" />
-      <Button fx:id="btnIniciar" onAction="#iniciarPedidos" defaultButton="true" layoutX="122.0" layoutY="276.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="122.0" text="Iniciar">
+      <Button fx:id="btnIniciar" defaultButton="true" layoutX="122.0" layoutY="276.0" mnemonicParsing="false" onAction="#iniciarPedidos" prefHeight="49.0" prefWidth="122.0" text="Iniciar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnCancelar" onAction="#cancelarPedidos" defaultButton="true" layoutX="304.0" layoutY="275.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="122.0" text="Cancelar">
+      <Button fx:id="btnCancelar" defaultButton="true" layoutX="304.0" layoutY="275.0" mnemonicParsing="false" onAction="#cancelarPedidos" prefHeight="50.0" prefWidth="122.0" text="Cancelar">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
